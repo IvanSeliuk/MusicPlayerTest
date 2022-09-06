@@ -10,9 +10,14 @@
 		6D4DA9F428C7AB3A003D6B6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4DA9F328C7AB3A003D6B6A /* AppDelegate.swift */; };
 		6D4DA9F628C7AB3A003D6B6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4DA9F528C7AB3A003D6B6A /* SceneDelegate.swift */; };
 		6D4DA9F828C7AB3A003D6B6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4DA9F728C7AB3A003D6B6A /* ViewController.swift */; };
-		6D4DA9FB28C7AB3A003D6B6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D4DA9F928C7AB3A003D6B6A /* Main.storyboard */; };
 		6D4DA9FD28C7AB3C003D6B6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D4DA9FC28C7AB3C003D6B6A /* Assets.xcassets */; };
 		6D4DAA0028C7AB3C003D6B6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D4DA9FE28C7AB3C003D6B6A /* LaunchScreen.storyboard */; };
+		6D4DAA0B28C7B0CC003D6B6A /* Malumup - FILV x LINIUS - Dont Wanna Go Home.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D4DAA0828C7B0CB003D6B6A /* Malumup - FILV x LINIUS - Dont Wanna Go Home.mp3 */; };
+		6D4DAA0C28C7B0CC003D6B6A /* Boris_Brejcha_-_Take_It_Smart_(musmore.com).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D4DAA0928C7B0CB003D6B6A /* Boris_Brejcha_-_Take_It_Smart_(musmore.com).mp3 */; };
+		6D4DAA1028C7B15F003D6B6A /* Songs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4DAA0F28C7B15F003D6B6A /* Songs.swift */; };
+		6D4DAA1328C7B76A003D6B6A /* MediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4DAA1228C7B76A003D6B6A /* MediaPlayer.swift */; };
+		6D4DAA1528C7EA37003D6B6A /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4DAA1428C7EA37003D6B6A /* MusicPlayerViewController.swift */; };
+		6D4DAA1A28C7F487003D6B6A /* KVPV - Mask.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D4DAA1928C7F487003D6B6A /* KVPV - Mask.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +25,15 @@
 		6D4DA9F328C7AB3A003D6B6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D4DA9F528C7AB3A003D6B6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6D4DA9F728C7AB3A003D6B6A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6D4DA9FA28C7AB3A003D6B6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6D4DA9FC28C7AB3C003D6B6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D4DA9FF28C7AB3C003D6B6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D4DAA0128C7AB3C003D6B6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D4DAA0828C7B0CB003D6B6A /* Malumup - FILV x LINIUS - Dont Wanna Go Home.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Malumup - FILV x LINIUS - Dont Wanna Go Home.mp3"; sourceTree = "<group>"; };
+		6D4DAA0928C7B0CB003D6B6A /* Boris_Brejcha_-_Take_It_Smart_(musmore.com).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Boris_Brejcha_-_Take_It_Smart_(musmore.com).mp3"; sourceTree = "<group>"; };
+		6D4DAA0F28C7B15F003D6B6A /* Songs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Songs.swift; sourceTree = "<group>"; };
+		6D4DAA1228C7B76A003D6B6A /* MediaPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayer.swift; sourceTree = "<group>"; };
+		6D4DAA1428C7EA37003D6B6A /* MusicPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewController.swift; sourceTree = "<group>"; };
+		6D4DAA1928C7F487003D6B6A /* KVPV - Mask.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "KVPV - Mask.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +66,44 @@
 		6D4DA9F228C7AB3A003D6B6A /* MusicPlayerTest */ = {
 			isa = PBXGroup;
 			children = (
+				6D4DAA1128C7B75A003D6B6A /* View */,
+				6D4DAA0E28C7B14F003D6B6A /* Models */,
+				6D4DAA0728C7B0B3003D6B6A /* Music */,
 				6D4DA9F328C7AB3A003D6B6A /* AppDelegate.swift */,
 				6D4DA9F528C7AB3A003D6B6A /* SceneDelegate.swift */,
 				6D4DA9F728C7AB3A003D6B6A /* ViewController.swift */,
-				6D4DA9F928C7AB3A003D6B6A /* Main.storyboard */,
 				6D4DA9FC28C7AB3C003D6B6A /* Assets.xcassets */,
 				6D4DA9FE28C7AB3C003D6B6A /* LaunchScreen.storyboard */,
 				6D4DAA0128C7AB3C003D6B6A /* Info.plist */,
+				6D4DAA1428C7EA37003D6B6A /* MusicPlayerViewController.swift */,
 			);
 			path = MusicPlayerTest;
+			sourceTree = "<group>";
+		};
+		6D4DAA0728C7B0B3003D6B6A /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				6D4DAA0928C7B0CB003D6B6A /* Boris_Brejcha_-_Take_It_Smart_(musmore.com).mp3 */,
+				6D4DAA0828C7B0CB003D6B6A /* Malumup - FILV x LINIUS - Dont Wanna Go Home.mp3 */,
+				6D4DAA1928C7F487003D6B6A /* KVPV - Mask.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		6D4DAA0E28C7B14F003D6B6A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6D4DAA0F28C7B15F003D6B6A /* Songs.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6D4DAA1128C7B75A003D6B6A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6D4DAA1228C7B76A003D6B6A /* MediaPlayer.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +164,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D4DAA0B28C7B0CC003D6B6A /* Malumup - FILV x LINIUS - Dont Wanna Go Home.mp3 in Resources */,
+				6D4DAA1A28C7F487003D6B6A /* KVPV - Mask.mp3 in Resources */,
+				6D4DAA0C28C7B0CC003D6B6A /* Boris_Brejcha_-_Take_It_Smart_(musmore.com).mp3 in Resources */,
 				6D4DAA0028C7AB3C003D6B6A /* LaunchScreen.storyboard in Resources */,
 				6D4DA9FD28C7AB3C003D6B6A /* Assets.xcassets in Resources */,
-				6D4DA9FB28C7AB3A003D6B6A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +179,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D4DAA1028C7B15F003D6B6A /* Songs.swift in Sources */,
+				6D4DAA1528C7EA37003D6B6A /* MusicPlayerViewController.swift in Sources */,
 				6D4DA9F828C7AB3A003D6B6A /* ViewController.swift in Sources */,
 				6D4DA9F428C7AB3A003D6B6A /* AppDelegate.swift in Sources */,
 				6D4DA9F628C7AB3A003D6B6A /* SceneDelegate.swift in Sources */,
+				6D4DAA1328C7B76A003D6B6A /* MediaPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6D4DA9F928C7AB3A003D6B6A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6D4DA9FA28C7AB3A003D6B6A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6D4DA9FE28C7AB3C003D6B6A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -291,7 +327,7 @@
 				INFOPLIST_FILE = MusicPlayerTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -318,7 +354,7 @@
 				INFOPLIST_FILE = MusicPlayerTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
