@@ -10,7 +10,7 @@ import AVKit
 
 final class MediaPlayer: UIView {
     
-    var song: [Song]
+    private var song: [Song]
     private var player = AVAudioPlayer()
     private var timer: Timer?
     private var playingIndex = 0
@@ -21,28 +21,17 @@ final class MediaPlayer: UIView {
         setupView()
     }
     
-//   private var seconds: Int = 0 {
-//        didSet {
-//            let min = Int(Double(self.seconds) / 60.0)
-//            let sec = Int(Double(self.seconds) - (Double(min) * 60.0))
-//            let min_string = min < 10 ? "0\(min)" : "\(min)"
-//            let sec_srting = sec < 10 ? "0\(sec)" : "\(sec)"
-//            remainingTimeLabel.text = "\(min_string):\(sec_srting)"
-//        }
-//    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    private lazy var songName: UILabel = {
-//        let label = UILabel()
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.textColor = .darkGray
-//        label.textAlignment = .center
-//        label.font = .systemFont(ofSize: 32, weight: .bold)
-//        return label
-//    }()
+    private lazy var backgroundImage: UIImageView = {
+       let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        return image
+    }()
     
     private lazy var songImage: UIImageView = {
        let image = UIImageView()
@@ -59,6 +48,8 @@ final class MediaPlayer: UIView {
         slider.translatesAutoresizingMaskIntoConstraints = false
         slider.addTarget(self, action: #selector(progressScrubbed), for: .valueChanged)
         slider.minimumTrackTintColor = UIColor(named: "subtitleColor")
+        slider.thumbTintColor = UIColor(named: "subtitleColor")
+        slider.maximumTrackTintColor = .white
         return slider
     }()
     
@@ -128,11 +119,11 @@ final class MediaPlayer: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.distribution = .equalSpacing
-        stack.spacing = 10
         return stack
     }()
     
     private func setupView() {
+        backgroundImage.image = UIImage(named: "4d")
         songNameLabel.text = song.first?.name
         songImage.image = UIImage(named: song.first?.image ?? "")
         artistNameLabel.text = song.first?.artist
@@ -141,7 +132,8 @@ final class MediaPlayer: UIView {
         [songNameLabel, artistNameLabel, elapsedTimeLabel, remainingTimeLabel].forEach({ label in
             label.textColor = .white
         })
-        [songImage, songNameLabel, artistNameLabel, progressBar, elapsedTimeLabel, remainingTimeLabel, controlStack].forEach({ view in
+        
+        [backgroundImage, songImage, songNameLabel, artistNameLabel, progressBar, elapsedTimeLabel, remainingTimeLabel, controlStack].forEach({ view in
             addSubview(view)
         })
         
@@ -149,7 +141,14 @@ final class MediaPlayer: UIView {
     }
     
     private func setupConstraints() {
-          
+        
+        NSLayoutConstraint.activate([
+            backgroundImage.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundImage.topAnchor.constraint(equalTo: topAnchor),
+            backgroundImage.bottomAnchor.constraint(equalTo: bottomAnchor)
+            ])
+        
         NSLayoutConstraint.activate([
             songImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             songImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
@@ -190,7 +189,6 @@ final class MediaPlayer: UIView {
             controlStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
             controlStack.topAnchor.constraint(equalTo: remainingTimeLabel.bottomAnchor, constant: 8)
             ])
-        
     }
     
     private func setupPlayer(song: Song) {
@@ -200,6 +198,7 @@ final class MediaPlayer: UIView {
         }
         songNameLabel.text = song.name
         artistNameLabel.text = song.artist
+        songImage.image = UIImage(named: song.image)
         
         do {
             player = try AVAudioPlayer(contentsOf: url)
@@ -231,11 +230,11 @@ final class MediaPlayer: UIView {
         playPauseButton.setImage(UIImage(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill", withConfiguration: config), for: .normal)
     }
     
-    
     @objc private func updateProcess() {
         progressBar.value = Float(player.currentTime)
+        elapsedTimeLabel.text = getFormattedTime(timeInterval: player.currentTime)
         let remainingTime = player.duration - player.currentTime
-        remainingTimeLabel.text = "\(remainingTime)"
+        remainingTimeLabel.text = getFormattedTime(timeInterval: remainingTime)
     }
     
     @objc private func tapedPreviousSong(_ sender: UIButton) {
@@ -271,12 +270,17 @@ final class MediaPlayer: UIView {
         player.currentTime = Float64(sender.value)
     }
     
-    
-    
-    private func fetFormattedTime(timeInterval: TimeInterval) -> String {
-        return ""
+    private func getFormattedTime(timeInterval: TimeInterval) -> String {
+        let min = timeInterval / 60
+        let sec = timeInterval.truncatingRemainder(dividingBy: 60)
+        let timeFormatter = NumberFormatter()
+        timeFormatter.minimumIntegerDigits = 2
+        timeFormatter.minimumFractionDigits = 0
+        timeFormatter.roundingMode = .down
+        
+        guard let min_string = timeFormatter.string(from: NSNumber(value: min)), let sec_string = timeFormatter.string(from: NSNumber(value: sec)) else { return "00:00" }
+        return "\(min_string):\(sec_string)"
     }
-    
 }
 
 extension MediaPlayer: AVAudioPlayerDelegate {
