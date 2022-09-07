@@ -13,7 +13,7 @@ final class MusicPlayerViewController: UIViewController {
         Song(name: "Take It Smart", image: "Take it Smart Boris Brejcha1", artist: "Boris Brejcha", fileName: "Boris_Brejcha_-_Take_It_Smart_(musmore.com)"),
         Song(name: "FILV x LINIUS", image: "FILV x LINIUS Malumup", artist: "Malumup", fileName: "Malumup - FILV x LINIUS - Dont Wanna Go Home"),
         Song(name: "Mask", image: "Mask KVPV", artist: "KVPV", fileName: "KVPV - Mask")
-        ]
+    ]
     
     private lazy var mediaPlayer: MediaPlayer = {
         let player = MediaPlayer(song: songs)

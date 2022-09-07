@@ -26,7 +26,7 @@ final class MediaPlayer: UIView {
     }
     
     private lazy var backgroundImage: UIImageView = {
-       let image = UIImageView()
+        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
@@ -34,7 +34,7 @@ final class MediaPlayer: UIView {
     }()
     
     private lazy var songImage: UIImageView = {
-       let image = UIImageView()
+        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
@@ -128,7 +128,7 @@ final class MediaPlayer: UIView {
         songImage.image = UIImage(named: song.first?.image ?? "")
         artistNameLabel.text = song.first?.artist
         setupPlayer(song: song[playingIndex])
-
+        
         [songNameLabel, artistNameLabel, elapsedTimeLabel, remainingTimeLabel].forEach({ label in
             label.textColor = .white
         })
@@ -147,48 +147,48 @@ final class MediaPlayer: UIView {
             backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor),
             backgroundImage.topAnchor.constraint(equalTo: topAnchor),
             backgroundImage.bottomAnchor.constraint(equalTo: bottomAnchor)
-            ])
+        ])
         
         NSLayoutConstraint.activate([
             songImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             songImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             songImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
             songImage.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2)
-            ])
+        ])
         
         NSLayoutConstraint.activate([
             songNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             songNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             songNameLabel.topAnchor.constraint(equalTo: songImage.bottomAnchor, constant: 16)
-            ])
+        ])
         
         NSLayoutConstraint.activate([
             artistNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             artistNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             artistNameLabel.topAnchor.constraint(equalTo: songNameLabel.bottomAnchor, constant: 8)
-            ])
+        ])
         
         NSLayoutConstraint.activate([
             progressBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             progressBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             progressBar.topAnchor.constraint(equalTo: artistNameLabel.bottomAnchor, constant: 8)
-            ])
+        ])
         
         NSLayoutConstraint.activate([
             elapsedTimeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             elapsedTimeLabel.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 8)
-            ])
+        ])
         
         NSLayoutConstraint.activate([
             remainingTimeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             remainingTimeLabel.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 8)
-            ])
+        ])
         
         NSLayoutConstraint.activate([
             controlStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
             controlStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
             controlStack.topAnchor.constraint(equalTo: remainingTimeLabel.bottomAnchor, constant: 8)
-            ])
+        ])
     }
     
     private func setupPlayer(song: Song) {
