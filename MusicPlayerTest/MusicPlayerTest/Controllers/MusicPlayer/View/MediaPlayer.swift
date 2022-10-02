@@ -7,6 +7,7 @@
 
 import UIKit
 import AVKit
+import Firebase
 
 final class MediaPlayer: UIView {
     
@@ -114,11 +115,22 @@ final class MediaPlayer: UIView {
         return button
     }()
     
+    private lazy var signOut: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let config = UIImage.SymbolConfiguration(pointSize: 30)
+        button.setImage(UIImage(systemName: "person.crop.square", withConfiguration: config), for: .normal)
+        button.addTarget(self, action: #selector(signOutAction), for: .touchUpInside)
+        button.tintColor = .white
+        return button
+    }()
+    
     private lazy var controlStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [previousButton, playPauseButton, nextButton])
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .horizontal
-        stack.distribution = .equalSpacing
+        let stack = UIStackView(arrangedSubviews: [previousButton, playPauseButton, nextButton],
+                                axis: .horizontal,
+                                spacing: 10,
+                                distribution: .equalSpacing)
+        
         return stack
     }()
     
@@ -133,10 +145,9 @@ final class MediaPlayer: UIView {
             label.textColor = .white
         })
         
-        [backgroundImage, songImage, songNameLabel, artistNameLabel, progressBar, elapsedTimeLabel, remainingTimeLabel, controlStack].forEach({ view in
+        [backgroundImage, signOut, songImage, songNameLabel, artistNameLabel, progressBar, elapsedTimeLabel, remainingTimeLabel, controlStack].forEach({ view in
             addSubview(view)
         })
-        
         setupConstraints()
     }
     
@@ -150,9 +161,14 @@ final class MediaPlayer: UIView {
         ])
         
         NSLayoutConstraint.activate([
+            signOut.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            signOut.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0)
+        ])
+        
+        NSLayoutConstraint.activate([
             songImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             songImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            songImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
+            songImage.topAnchor.constraint(equalTo: signOut.bottomAnchor, constant: 8),
             songImage.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2)
         ])
         
@@ -268,6 +284,14 @@ final class MediaPlayer: UIView {
     
     @objc private func progressScrubbed(_ sender: UISlider) {
         player.currentTime = Float64(sender.value)
+    }
+    
+    @objc private func signOutAction() {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print(error)
+        }
     }
     
     private func getFormattedTime(timeInterval: TimeInterval) -> String {

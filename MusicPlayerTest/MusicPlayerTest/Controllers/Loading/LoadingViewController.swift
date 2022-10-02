@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+
 enum segment {
     case x, y, h
 }
@@ -169,10 +171,16 @@ class LoadingViewController: UIViewController {
             self.textLabel.alpha = 0
             self.shadowView.alpha = 1.0
         } completion: { success in
-            let vc = MusicPlayerViewController()
-            vc.modalPresentationStyle = .fullScreen
-            vc.modalTransitionStyle = .crossDissolve
-            self.present(vc, animated: true, completion: nil)
+            Auth.auth().addStateDidChangeListener { [weak self] auth, user in
+                if user == nil {
+                    let vc = AuthViewController()
+                    self?.navigationController?.pushViewController(vc, animated: true)
+
+                } else {
+                    let vc = MusicPlayerViewController()
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
         }
     }
 }

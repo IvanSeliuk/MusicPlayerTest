@@ -30,6 +30,7 @@ final class MusicPlayerViewController: UIViewController {
     private func setupView() {
         view.addSubview(mediaPlayer)
         setupConstraints()
+        navigationController?.navigationBar.isHidden = true
     }
     
     private func setupConstraints() {
