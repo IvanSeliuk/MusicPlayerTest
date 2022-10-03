@@ -25,28 +25,28 @@ extension AuthViewController {
         ])
         
         NSLayoutConstraint.activate([
-            textFieldControlsStackView.centerYAnchor.constraint(equalTo: blurView.centerYAnchor),
-            textFieldControlsStackView.centerXAnchor.constraint(equalTo: blurView.centerXAnchor),
-            textFieldControlsStackView.leadingAnchor.constraint(equalTo: blurView.leadingAnchor, constant: 24),
-            textFieldControlsStackView.trailingAnchor.constraint(equalTo: blurView.trailingAnchor, constant: -24)
-        ])
+            textFieldStackView.centerYAnchor.constraint(equalTo: blurView.centerYAnchor),
+            textFieldStackView.centerXAnchor.constraint(equalTo: blurView.centerXAnchor),
+            textFieldStackView.leadingAnchor.constraint(equalTo: blurView.leadingAnchor, constant: 24),
+            textFieldStackView.trailingAnchor.constraint(equalTo: blurView.trailingAnchor, constant: -24)
+                ])
         
         NSLayoutConstraint.activate([
             buttonControlsStackView.centerXAnchor.constraint(equalTo: blurView.centerXAnchor),
-            buttonControlsStackView.topAnchor.constraint(equalTo: textFieldControlsStackView.bottomAnchor, constant: 25),
+            buttonControlsStackView.topAnchor.constraint(equalTo: textFieldStackView.bottomAnchor, constant: 25),
             buttonControlsStackView.heightAnchor.constraint(equalToConstant: 50),
         ])
         
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: blurView.centerXAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: textFieldControlsStackView.topAnchor, constant: -50)
+            titleLabel.bottomAnchor.constraint(equalTo: textFieldStackView.topAnchor, constant: -50)
         ])
     }
     
     func setupUI() {
         view.addSubview(backgroundImage)
         view.addSubview(blurView)
-        blurView.contentView.addSubview(textFieldControlsStackView)
+        blurView.contentView.addSubview(textFieldStackView)
         blurView.contentView.addSubview(buttonControlsStackView)
         blurView.contentView.addSubview(titleLabel)
         navigationController?.navigationBar.isHidden = true
@@ -63,6 +63,10 @@ extension AuthViewController {
         let alert = UIAlertController(title: "Error", message: "Please, fill in all fields", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true, completion: nil)
+    }
+    
+    private func setTextField(textField: UITextField) {
+        
     }
 }
 
@@ -102,6 +106,10 @@ extension AuthViewController: UITextFieldDelegate {
         textFieldEmail.resignFirstResponder()
         textFieldPassword.resignFirstResponder()
         textFieldName.resignFirstResponder()
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return true
     }
 }
