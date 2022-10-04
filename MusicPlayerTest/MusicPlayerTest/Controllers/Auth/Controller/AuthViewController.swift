@@ -7,7 +7,6 @@
 
 import UIKit
 import Firebase
-import DTTextField
 import PasswordTextField
 
 class AuthViewController: UIViewController {
@@ -65,7 +64,6 @@ class AuthViewController: UIViewController {
         password.placeholder = "Enter your password"
         password.borderStyle = .roundedRect
         password.returnKeyType = .done
-        
         return password
     }()
     
@@ -83,6 +81,30 @@ class AuthViewController: UIViewController {
         signUp = !signUp
     }
     
+    @objc func setupNameLabel() {
+        if textFieldName.text?.count ?? 0 > 0 {
+            nameLabel.alpha = 1
+        } else {
+            nameLabel.alpha = 0
+        }
+    }
+    
+    @objc private func setupEmailLabel() {
+        if textFieldEmail.text?.count ?? 0 > 0 {
+            emailLabel.alpha = 1
+        } else {
+            emailLabel.alpha = 0
+        }
+    }
+    
+    @objc private func setupPasswordLabel() {
+        if textFieldPassword.text?.count ?? 0 > 0 {
+            passwordLabel.alpha = 1
+        } else {
+            passwordLabel.alpha = 0
+        }
+    }
+    
     lazy var accountLabel: UILabel = {
         let label = UILabel(text: "Do you have an account yet?",
                             textColor: .white,
@@ -92,26 +114,23 @@ class AuthViewController: UIViewController {
     }()
     
     lazy var nameLabel: UILabel = {
-        let label = UILabel(text: "It's not valid name?",
-                            textColor: .white,
-                            textAlignment: .left,
-                            font: .systemFont(ofSize: 12, weight: .light))
+        let label = UILabel(textAlignment: .left,
+                            font: .systemFont(ofSize: 12, weight: .light),
+                            numberOfLines: 0)
         return label
     }()
     
     lazy var emailLabel: UILabel = {
-        let label = UILabel(text: "It's not valid email?",
-                            textColor: .red,
-                            textAlignment: .left,
-                            font: .systemFont(ofSize: 12, weight: .light))
+        let label = UILabel(textAlignment: .left,
+                            font: .systemFont(ofSize: 12, weight: .light),
+                            numberOfLines: 0)
         return label
     }()
     
     lazy var passwordLabel: UILabel = {
-        let label = UILabel(text: "It's not valid password?",
-                            textColor: .red,
-                            textAlignment: .left,
-                            font: .systemFont(ofSize: 12, weight: .light))
+        let label = UILabel(textAlignment: .left,
+                            font: .systemFont(ofSize: 12, weight: .light),
+                            numberOfLines: 0)
         return label
     }()
     
@@ -167,8 +186,6 @@ class AuthViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupConstraints()
-        //emailLabel.alpha = 0
-       // passwordLabel.alpha = 0
     }
 }
     

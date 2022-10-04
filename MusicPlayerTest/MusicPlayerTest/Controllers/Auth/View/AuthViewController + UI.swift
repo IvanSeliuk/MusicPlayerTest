@@ -59,14 +59,32 @@ extension AuthViewController {
         textFieldName.delegate = self
     }
     
-    private func showAlert() {
+    private func showErrorAlert() {
         let alert = UIAlertController(title: "Error", message: "Please, fill in all fields", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true, completion: nil)
     }
     
-    private func setTextField(textField: UITextField) {
+    private func setTextField(textField: UITextField, label: UILabel, validType: String.ValidTypes, validMessage: String, wrongMessage: String, string: String, range: NSRange) {
         
+        let text = (textField.text ?? "") + string
+        let result: String
+        
+        if range.length == 1 {
+            let end = text.index(text.startIndex, offsetBy: text.count - 1)
+            result = String(text[text.startIndex..<end])
+        } else {
+            result = text
+        }
+        textField.text = result
+        
+        if result.isValid(validType: validType) {
+            label.text = validMessage
+            label.textColor = .green
+        } else {
+            label.text = wrongMessage
+            label.textColor = .red
+        }
     }
 }
 
@@ -89,7 +107,7 @@ extension AuthViewController: UITextFieldDelegate {
                         }
                     }
                 } else {
-                    showAlert()
+                    showErrorAlert()
                 }
             } else {
                 if !email.isEmpty && !password.isEmpty {
@@ -99,7 +117,7 @@ extension AuthViewController: UITextFieldDelegate {
                         }
                     }
                 } else {
-                    showAlert()
+                    showErrorAlert()
                 }
             }
         }
@@ -110,7 +128,32 @@ extension AuthViewController: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return true
+        
+        switch textField {
+        case textFieldName: setTextField(textField: textFieldName,
+                                         label: nameLabel,
+                                         validType: .name,
+                                         validMessage: "Name is valid",
+                                         wrongMessage: "Only A-Z,a-z and at least 1 character",
+                                         string: string,
+                                         range: range)
+        case textFieldEmail: setTextField(textField: textFieldEmail,
+                                         label: emailLabel,
+                                         validType: .email,
+                                         validMessage: "Email is valid",
+                                         wrongMessage: "xxx@xxx.xx",
+                                         string: string,
+                                         range: range)
+        case textFieldPassword: setTextField(textField: textFieldPassword,
+                                         label: passwordLabel,
+                                         validType: .password,
+                                         validMessage: "Password is valid",
+                                         wrongMessage: "Passwords should contain min one capital and lowercase letter, one number and at least 6 characters",
+                                         string: string,
+                                         range: range)
+        default: break
+        }
+        return false
     }
 }
 

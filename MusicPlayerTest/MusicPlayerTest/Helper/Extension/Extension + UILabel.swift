@@ -16,4 +16,11 @@ extension UILabel {
         self.text = text
         self.translatesAutoresizingMaskIntoConstraints = false
     }
+    convenience init(textAlignment: NSTextAlignment, font: UIFont, numberOfLines: Int) {
+        self.init()
+        self.font = font
+        self.textAlignment = textAlignment
+        self.numberOfLines = numberOfLines
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
 }
