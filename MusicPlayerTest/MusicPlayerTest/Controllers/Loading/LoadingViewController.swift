@@ -177,7 +177,7 @@ class LoadingViewController: UIViewController {
                     self?.navigationController?.pushViewController(vc, animated: true)
 
                 } else {
-                    let vc = MusicPlayerViewController()
+                    let vc = TableViewController()
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }
             }

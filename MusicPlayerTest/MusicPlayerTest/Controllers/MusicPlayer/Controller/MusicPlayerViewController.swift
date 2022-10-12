@@ -8,15 +8,21 @@
 import UIKit
 
 final class MusicPlayerViewController: UIViewController {
+    private var songs: [Song]
+    private var index: Int
+
+    init(songs: [Song], index: Int) {
+        self.songs = songs
+        self.index = index
+        super.init(nibName: nil, bundle: nil)
+    }
     
-    private var songs = [
-        Song(name: "Take It Smart", image: "Take it Smart Boris Brejcha1", artist: "Boris Brejcha", fileName: "Boris_Brejcha_-_Take_It_Smart_(musmore.com)"),
-        Song(name: "FILV x LINIUS", image: "FILV x LINIUS Malumup", artist: "Malumup", fileName: "Malumup - FILV x LINIUS - Dont Wanna Go Home"),
-        Song(name: "Mask", image: "Mask KVPV", artist: "KVPV", fileName: "KVPV - Mask")
-    ]
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private lazy var mediaPlayer: MediaPlayer = {
-        let player = MediaPlayer(song: songs)
+        let player = MediaPlayer(song: songs, playingIndex: index)
         player.translatesAutoresizingMaskIntoConstraints = false
         player.backgroundColor = .clear
         return player
@@ -30,7 +36,6 @@ final class MusicPlayerViewController: UIViewController {
     private func setupView() {
         view.addSubview(mediaPlayer)
         setupConstraints()
-        navigationController?.navigationBar.isHidden = true
     }
     
     private func setupConstraints() {

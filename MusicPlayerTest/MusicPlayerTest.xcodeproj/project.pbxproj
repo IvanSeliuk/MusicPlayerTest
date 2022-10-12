@@ -7,8 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D09E1CF28EF7618005FD0B9 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D09E1CE28EF7618005FD0B9 /* TableViewController.swift */; };
+		6D09E1D228EF7C23005FD0B9 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D09E1D128EF7C23005FD0B9 /* SongTableViewCell.swift */; };
+		6D37B60628F6BDCC0066EAB9 /* jordan-burns-weekend-slowed.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D37B5FE28F6BDCA0066EAB9 /* jordan-burns-weekend-slowed.mp3 */; };
+		6D37B60728F6BDCC0066EAB9 /* Shouse - Love Tonight (David Guetta Remix).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D37B5FF28F6BDCA0066EAB9 /* Shouse - Love Tonight (David Guetta Remix).mp3 */; };
+		6D37B60828F6BDCC0066EAB9 /* Adele - Someone Like You (Messed Dubst.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D37B60028F6BDCA0066EAB9 /* Adele - Someone Like You (Messed Dubst.mp3 */; };
+		6D37B60928F6BDCC0066EAB9 /* Jnr Choi - TO THE MOON (feat. Sam Tompkins).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D37B60128F6BDCA0066EAB9 /* Jnr Choi - TO THE MOON (feat. Sam Tompkins).mp3 */; };
+		6D37B60A28F6BDCC0066EAB9 /* Silent_Child_-_Fuck_You_(musmore.com).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D37B60228F6BDCB0066EAB9 /* Silent_Child_-_Fuck_You_(musmore.com).mp3 */; };
+		6D37B60B28F6BDCC0066EAB9 /* ODESZA feat. Bettye Lavette - The Last Goodbye.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D37B60328F6BDCB0066EAB9 /* ODESZA feat. Bettye Lavette - The Last Goodbye.mp3 */; };
+		6D37B60C28F6BDCC0066EAB9 /* Adele - Rolling In The Deep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D37B60428F6BDCC0066EAB9 /* Adele - Rolling In The Deep.mp3 */; };
+		6D37B60D28F6BDCC0066EAB9 /* The Tech Thieves - Fake.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D37B60528F6BDCC0066EAB9 /* The Tech Thieves - Fake.mp3 */; };
 		6D3BF91828EA0F29001528BA /* AuthViewController + UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3BF91728EA0F29001528BA /* AuthViewController + UI.swift */; };
 		6D3BF91C28EA316E001528BA /* Extension + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3BF91B28EA316E001528BA /* Extension + String.swift */; };
+		6D3D640F28F6D41500405274 /* TableViewController + UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3D640E28F6D41500405274 /* TableViewController + UI.swift */; };
 		6D4DA9F428C7AB3A003D6B6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4DA9F328C7AB3A003D6B6A /* AppDelegate.swift */; };
 		6D4DA9F628C7AB3A003D6B6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4DA9F528C7AB3A003D6B6A /* SceneDelegate.swift */; };
 		6D4DA9FD28C7AB3C003D6B6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D4DA9FC28C7AB3C003D6B6A /* Assets.xcassets */; };
@@ -30,8 +41,19 @@
 /* Begin PBXFileReference section */
 		26EEAEF521A0E69B8C7F2BDA /* Pods-MusicPlayerTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicPlayerTest.debug.xcconfig"; path = "Target Support Files/Pods-MusicPlayerTest/Pods-MusicPlayerTest.debug.xcconfig"; sourceTree = "<group>"; };
 		6016E12BEA8B5CB2CF5C50D8 /* Pods-MusicPlayerTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicPlayerTest.release.xcconfig"; path = "Target Support Files/Pods-MusicPlayerTest/Pods-MusicPlayerTest.release.xcconfig"; sourceTree = "<group>"; };
+		6D09E1CE28EF7618005FD0B9 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		6D09E1D128EF7C23005FD0B9 /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
+		6D37B5FE28F6BDCA0066EAB9 /* jordan-burns-weekend-slowed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "jordan-burns-weekend-slowed.mp3"; sourceTree = "<group>"; };
+		6D37B5FF28F6BDCA0066EAB9 /* Shouse - Love Tonight (David Guetta Remix).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Shouse - Love Tonight (David Guetta Remix).mp3"; sourceTree = "<group>"; };
+		6D37B60028F6BDCA0066EAB9 /* Adele - Someone Like You (Messed Dubst.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Adele - Someone Like You (Messed Dubst.mp3"; sourceTree = "<group>"; };
+		6D37B60128F6BDCA0066EAB9 /* Jnr Choi - TO THE MOON (feat. Sam Tompkins).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Jnr Choi - TO THE MOON (feat. Sam Tompkins).mp3"; sourceTree = "<group>"; };
+		6D37B60228F6BDCB0066EAB9 /* Silent_Child_-_Fuck_You_(musmore.com).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Silent_Child_-_Fuck_You_(musmore.com).mp3"; sourceTree = "<group>"; };
+		6D37B60328F6BDCB0066EAB9 /* ODESZA feat. Bettye Lavette - The Last Goodbye.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ODESZA feat. Bettye Lavette - The Last Goodbye.mp3"; sourceTree = "<group>"; };
+		6D37B60428F6BDCC0066EAB9 /* Adele - Rolling In The Deep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Adele - Rolling In The Deep.mp3"; sourceTree = "<group>"; };
+		6D37B60528F6BDCC0066EAB9 /* The Tech Thieves - Fake.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Tech Thieves - Fake.mp3"; sourceTree = "<group>"; };
 		6D3BF91728EA0F29001528BA /* AuthViewController + UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthViewController + UI.swift"; sourceTree = "<group>"; };
 		6D3BF91B28EA316E001528BA /* Extension + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + String.swift"; sourceTree = "<group>"; };
+		6D3D640E28F6D41500405274 /* TableViewController + UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController + UI.swift"; sourceTree = "<group>"; };
 		6D4DA9F028C7AB3A003D6B6A /* MusicPlayerTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayerTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D4DA9F328C7AB3A003D6B6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D4DA9F528C7AB3A003D6B6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,10 +94,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6D09E1CD28EF7040005FD0B9 /* TableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6D3D640C28F6D3E900405274 /* Controller */,
+				6D3D640D28F6D3F500405274 /* View */,
+			);
+			path = TableViewController;
+			sourceTree = "<group>";
+		};
+		6D09E1D028EF7C0F005FD0B9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6D09E1D128EF7C23005FD0B9 /* SongTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		6D3BF91228EA0E85001528BA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				6D3BF91328EA0EA0001528BA /* Loading */,
+				6D09E1CD28EF7040005FD0B9 /* TableViewController */,
 				6D3BF91528EA0ED0001528BA /* Auth */,
 				6D3BF91428EA0EB2001528BA /* MusicPlayer */,
 			);
@@ -133,6 +173,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6D3D640C28F6D3E900405274 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6D09E1CE28EF7618005FD0B9 /* TableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6D3D640D28F6D3F500405274 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6D3D640E28F6D41500405274 /* TableViewController + UI.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6D4DA9E728C7AB3A003D6B6A = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +210,7 @@
 		6D4DA9F228C7AB3A003D6B6A /* MusicPlayerTest */ = {
 			isa = PBXGroup;
 			children = (
+				6D09E1D028EF7C0F005FD0B9 /* Cell */,
 				6D3BF91628EA0EEF001528BA /* Helper */,
 				6D4DAA0E28C7B14F003D6B6A /* Model */,
 				6D3BF91228EA0E85001528BA /* Controllers */,
@@ -173,6 +230,14 @@
 				6D4DAA0928C7B0CB003D6B6A /* Boris_Brejcha_-_Take_It_Smart_(musmore.com).mp3 */,
 				6D4DAA0828C7B0CB003D6B6A /* Malumup - FILV x LINIUS - Dont Wanna Go Home.mp3 */,
 				6D4DAA1928C7F487003D6B6A /* KVPV - Mask.mp3 */,
+				6D37B60428F6BDCC0066EAB9 /* Adele - Rolling In The Deep.mp3 */,
+				6D37B60028F6BDCA0066EAB9 /* Adele - Someone Like You (Messed Dubst.mp3 */,
+				6D37B60128F6BDCA0066EAB9 /* Jnr Choi - TO THE MOON (feat. Sam Tompkins).mp3 */,
+				6D37B5FE28F6BDCA0066EAB9 /* jordan-burns-weekend-slowed.mp3 */,
+				6D37B60328F6BDCB0066EAB9 /* ODESZA feat. Bettye Lavette - The Last Goodbye.mp3 */,
+				6D37B5FF28F6BDCA0066EAB9 /* Shouse - Love Tonight (David Guetta Remix).mp3 */,
+				6D37B60228F6BDCB0066EAB9 /* Silent_Child_-_Fuck_You_(musmore.com).mp3 */,
+				6D37B60528F6BDCC0066EAB9 /* The Tech Thieves - Fake.mp3 */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -280,12 +345,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D37B60628F6BDCC0066EAB9 /* jordan-burns-weekend-slowed.mp3 in Resources */,
 				6D4DAA0B28C7B0CC003D6B6A /* Malumup - FILV x LINIUS - Dont Wanna Go Home.mp3 in Resources */,
 				6D4DAA1A28C7F487003D6B6A /* KVPV - Mask.mp3 in Resources */,
+				6D37B60828F6BDCC0066EAB9 /* Adele - Someone Like You (Messed Dubst.mp3 in Resources */,
+				6D37B60728F6BDCC0066EAB9 /* Shouse - Love Tonight (David Guetta Remix).mp3 in Resources */,
+				6D37B60A28F6BDCC0066EAB9 /* Silent_Child_-_Fuck_You_(musmore.com).mp3 in Resources */,
+				6D37B60C28F6BDCC0066EAB9 /* Adele - Rolling In The Deep.mp3 in Resources */,
 				6D4DAA0C28C7B0CC003D6B6A /* Boris_Brejcha_-_Take_It_Smart_(musmore.com).mp3 in Resources */,
+				6D37B60D28F6BDCC0066EAB9 /* The Tech Thieves - Fake.mp3 in Resources */,
 				6D4DAA0028C7AB3C003D6B6A /* LaunchScreen.storyboard in Resources */,
 				6D4DA9FD28C7AB3C003D6B6A /* Assets.xcassets in Resources */,
+				6D37B60B28F6BDCC0066EAB9 /* ODESZA feat. Bettye Lavette - The Last Goodbye.mp3 in Resources */,
 				6D6B090928E604C000179075 /* GoogleService-Info.plist in Resources */,
+				6D37B60928F6BDCC0066EAB9 /* Jnr Choi - TO THE MOON (feat. Sam Tompkins).mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,13 +411,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D09E1D228EF7C23005FD0B9 /* SongTableViewCell.swift in Sources */,
 				6D4DAA1028C7B15F003D6B6A /* Songs.swift in Sources */,
 				6D4DAA1528C7EA37003D6B6A /* MusicPlayerViewController.swift in Sources */,
+				6D3D640F28F6D41500405274 /* TableViewController + UI.swift in Sources */,
 				6D3BF91C28EA316E001528BA /* Extension + String.swift in Sources */,
 				6D4DA9F428C7AB3A003D6B6A /* AppDelegate.swift in Sources */,
 				6D6B090B28E7288000179075 /* AuthViewController.swift in Sources */,
 				6D4DA9F628C7AB3A003D6B6A /* SceneDelegate.swift in Sources */,
 				6D4DAA1328C7B76A003D6B6A /* MediaPlayer.swift in Sources */,
+				6D09E1CF28EF7618005FD0B9 /* TableViewController.swift in Sources */,
 				6D3BF91828EA0F29001528BA /* AuthViewController + UI.swift in Sources */,
 				6D4DAA1D28C8A076003D6B6A /* LoadingViewController.swift in Sources */,
 				6D6B090E28E8841800179075 /* Extension + StackView.swift in Sources */,
