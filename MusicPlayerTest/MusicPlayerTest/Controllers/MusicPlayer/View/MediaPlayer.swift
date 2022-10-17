@@ -20,7 +20,6 @@ final class MediaPlayer: UIView {
         self.playingIndex = playingIndex
         super.init(frame: .zero)
         setupView()
-        print("fdfdf")
     }
 
     required init?(coder: NSCoder) {

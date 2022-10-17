@@ -49,7 +49,7 @@ extension AuthViewController {
         blurView.contentView.addSubview(textFieldStackView)
         blurView.contentView.addSubview(buttonControlsStackView)
         blurView.contentView.addSubview(titleLabel)
-        navigationController?.navigationBar.isHidden = true
+        navigationItem.hidesBackButton = true
         setDelegate()
     }
     

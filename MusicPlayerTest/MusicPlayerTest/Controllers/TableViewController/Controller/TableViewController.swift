@@ -9,7 +9,17 @@ import UIKit
 
 class TableViewController: UIViewController {
     
-     let songs = Song.getSong()
+    let songs = Song.getSong()
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    var filteredSong = [Song]()
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
     
      lazy var tableView: UITableView = {
         let table = UITableView()
@@ -37,8 +47,7 @@ class TableViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
+        setupSearchBar()
+        animatedTableView()
     }
 }
-
-
-
