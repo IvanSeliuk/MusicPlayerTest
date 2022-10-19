@@ -33,7 +33,7 @@ extension TableViewController {
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Search", attributes: [NSAttributedString.Key.foregroundColor : UIColor.darkGray])
+        searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Search music", attributes: [NSAttributedString.Key.foregroundColor : UIColor.darkGray])
         searchController.searchBar.searchTextField.backgroundColor = UIColor(named: "ColorSearch")
         searchController.searchBar.searchTextField.textColor = .white
         searchController.searchBar.tintColor = .white
@@ -115,9 +115,11 @@ extension TableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isFiltering {
             let vc = MusicPlayerViewController(songs: filteredSong, index: indexPath.row)
+//            present(vc, animated: true)
             navigationController?.pushViewController(vc, animated: true)
         } else {
             let vc = MusicPlayerViewController(songs: songs, index: indexPath.row)
+//            present(vc, animated: true)
             navigationController?.pushViewController(vc, animated: true)
         }
     }
