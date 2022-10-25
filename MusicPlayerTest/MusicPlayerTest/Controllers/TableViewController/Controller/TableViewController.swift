@@ -9,7 +9,7 @@ import UIKit
 
 class TableViewController: UIViewController {
     
-    let songs = Song.getSong()
+    let songs = Song.getSong().sorted(by: {$0.name < $1.name})
     
     let searchController = UISearchController(searchResultsController: nil)
     var filteredSong = [Song]()
@@ -46,6 +46,7 @@ class TableViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.reloadData()
         setupNavigationBar()
         setupSearchBar()
         animatedTableView()

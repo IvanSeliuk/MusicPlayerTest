@@ -45,6 +45,15 @@ final class SongTableViewCell: UITableViewCell {
         return label
     }()
     
+    private lazy var arrowImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        image.image = UIImage(named: "arrow")
+        return image
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -55,7 +64,7 @@ final class SongTableViewCell: UITableViewCell {
     }
     
     private func setupView() {
-        [songImage, songNameLabel, artistNameLabel].forEach { view in
+        [songImage, songNameLabel, artistNameLabel, arrowImage].forEach { view in
             contentView.addSubview(view)
         }
         setupConstraints()
@@ -79,8 +88,15 @@ final class SongTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             artistNameLabel.leadingAnchor.constraint(equalTo: songImage.trailingAnchor, constant: 16),
             artistNameLabel.topAnchor.constraint(equalTo: songNameLabel.bottomAnchor, constant: 8),
-            artistNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            artistNameLabel.trailingAnchor.constraint(equalTo: arrowImage.leadingAnchor, constant: 0),
             artistNameLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -16)
+            ])
+        
+        NSLayoutConstraint.activate([
+            arrowImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            arrowImage.centerYAnchor.constraint(equalTo: songImage.centerYAnchor),
+            arrowImage.widthAnchor.constraint(equalToConstant: 20),
+            arrowImage.heightAnchor.constraint(equalToConstant: 20),
             ])
     }
 }

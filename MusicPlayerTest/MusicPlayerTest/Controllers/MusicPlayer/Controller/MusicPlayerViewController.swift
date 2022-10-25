@@ -32,6 +32,7 @@ final class MusicPlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        closureAlertPresent()
     }
     
     private func setupView() {
@@ -58,5 +59,28 @@ final class MusicPlayerViewController: UIViewController {
         super.viewDidDisappear(animated)
         mediaPlayer.stop()
         UIApplication.shared.isIdleTimerDisabled = false
+    }
+    
+    private func closureAlertPresent() {
+        mediaPlayer.presentAlertSettings = { [weak self] in
+            guard let self = self else { return }
+            let alert = UIAlertController(title: nil, message: "\(self.mediaPlayer.artistNameLabel.text ?? "") \n\(self.mediaPlayer.nameSongLabel.text ?? "")", preferredStyle: .actionSheet)
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let playlist = UIAlertAction(title: "Add to Playlist", style: .default) { _ in
+                print("to do new play list")
+            }
+            let similar = UIAlertAction(title:  "Find Similar", style: .default) { _ in
+                print("to do find similar music")
+            }
+            let remove = UIAlertAction(title:  "Remove from My Music", style: .destructive) { _ in
+                print("to do remove from My Music")
+            }
+            alert.addAction(cancel)
+            alert.addAction(playlist)
+            alert.addAction(similar)
+            alert.addAction(remove)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }

@@ -10,11 +10,13 @@ import AVKit
 
 final class MediaPlayer: UIView {
     
-    private var song: [Song]
+    var song: [Song]
     private var player = AVAudioPlayer()
     private var timer: Timer?
     private var playingIndex: Int
     private var isLike: Bool = false
+    
+    var presentAlertSettings: (() -> Void)?
     
     init(song: [Song], playingIndex: Int) {
         self.song = song
@@ -72,14 +74,14 @@ final class MediaPlayer: UIView {
         return label
     }()
     
-    private lazy var songNameLabel: UILabel = {
+    lazy var nameSongLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 25, weight: .bold)
         return label
     }()
     
-    private lazy var artistNameLabel: UILabel = {
+    lazy var artistNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
@@ -186,16 +188,16 @@ final class MediaPlayer: UIView {
     
     private func setupView() {
         backgroundImage.image = UIImage(named: "4d")
-        songNameLabel.text = song.first?.name
+        nameSongLabel.text = song.first?.name
         songImage.image = UIImage(named: song.first?.image ?? "")
         artistNameLabel.text = song.first?.artist
         setupPlayer(song: song[playingIndex])
         
-        [songNameLabel, artistNameLabel, elapsedTimeLabel, remainingTimeLabel].forEach({ label in
+        [nameSongLabel, artistNameLabel, elapsedTimeLabel, remainingTimeLabel].forEach({ label in
             label.textColor = .white
         })
         
-        [backgroundImage, songImage, songNameLabel, artistNameLabel, progressBar, elapsedTimeLabel, remainingTimeLabel, controlStack, volumeStack].forEach({ view in
+        [backgroundImage, songImage, nameSongLabel, artistNameLabel, progressBar, elapsedTimeLabel, remainingTimeLabel, controlStack, volumeStack].forEach({ view in
             addSubview(view)
         })
         setupConstraints()
@@ -224,15 +226,15 @@ final class MediaPlayer: UIView {
         ])
         
         NSLayoutConstraint.activate([
-            songNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            songNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            songNameLabel.topAnchor.constraint(equalTo: artistNameLabel.bottomAnchor, constant: 8)
+            nameSongLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            nameSongLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            nameSongLabel.topAnchor.constraint(equalTo: artistNameLabel.bottomAnchor, constant: 8)
         ])
         
         NSLayoutConstraint.activate([
             progressBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             progressBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            progressBar.topAnchor.constraint(equalTo: songNameLabel.bottomAnchor, constant: 16)
+            progressBar.topAnchor.constraint(equalTo: nameSongLabel.bottomAnchor, constant: 16)
         ])
         
         NSLayoutConstraint.activate([
@@ -263,7 +265,7 @@ final class MediaPlayer: UIView {
         if timer == nil {
             timer = Timer.scheduledTimer(timeInterval: 0, target: self, selector: #selector(updateProcess), userInfo: nil, repeats: true)
         }
-        songNameLabel.text = song.name
+        nameSongLabel.text = song.name
         artistNameLabel.text = song.artist
         songImage.image = UIImage(named: song.image)
         
@@ -370,18 +372,7 @@ final class MediaPlayer: UIView {
     }
     
     @objc private func setSettingsSong() {
-        
-//        let alert = UIAlertController(title: nil, message: songNameLabel.text, preferredStyle: .actionSheet)
-//        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//        let playlist = UIAlertAction(title: "Add to Playlist", style: .default)
-//        let similar = UIAlertAction(title:  "Find Similar", style: .default)
-//        let remove = UIAlertAction(title:  "Remove from My Music", style: .destructive)
-//        alert.addAction(cancel)
-//        alert.addAction(playlist)
-//        alert.addAction(similar)
-//        alert.addAction(remove)
-//
-//        present(alert, animated: true, completion: nil)
+        presentAlertSettings?()
     }
     
     private func getFormattedTime(timeInterval: TimeInterval) -> String {
@@ -406,7 +397,7 @@ final class MediaPlayer: UIView {
         songNameAnimation.beginTime = CACurrentMediaTime() + 1
         songNameAnimation.isRemovedOnCompletion = false
         songNameAnimation.timingFunction = CAMediaTimingFunction(name: .linear)
-        self.songNameLabel.layer.add(songNameAnimation, forKey: "transformTranslationX")
+        self.nameSongLabel.layer.add(songNameAnimation, forKey: "transformTranslationX")
     }
 }
 
