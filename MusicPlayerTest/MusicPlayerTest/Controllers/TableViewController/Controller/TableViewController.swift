@@ -8,7 +8,6 @@
 import UIKit
 
 class TableViewController: UIViewController {
-    
     let songs = Song.getSong().sorted(by: {$0.name < $1.name})
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -21,17 +20,18 @@ class TableViewController: UIViewController {
         return searchController.isActive && !searchBarIsEmpty
     }
     
-     lazy var tableView: UITableView = {
-        let table = UITableView()
+    lazy var tableView: UITableView = {
+        let table = UITableView(frame: .zero, style: .grouped)
         table.translatesAutoresizingMaskIntoConstraints = false
         table.delegate = self
         table.dataSource = self
-        table.register(SongTableViewCell.self, forCellReuseIdentifier: "SongTableViewCell")
+        table.register(SongTableViewCell.self, forCellReuseIdentifier: SongTableViewCell.reuseIdentifier)
+        table.register(LikeSongsTableViewCell.self, forCellReuseIdentifier: LikeSongsTableViewCell.reuseIdentifier)
         table.backgroundColor = .clear
         return table
     }()
     
-     let backgroundImage: UIImageView = {
+    let backgroundImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "4d")

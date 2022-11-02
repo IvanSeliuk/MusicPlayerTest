@@ -69,57 +69,83 @@ extension TableViewController {
 
 extension TableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 132
+        
+        switch indexPath.section {
+        case 0: return 116
+        case 1: return 250
+        default: return 0
+        }
     }
 }
 
 extension TableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering {
-            return filteredSong.count
+        switch section {
+        case 0:
+            if isFiltering {
+                return filteredSong.count
+            }
+            return songs.count
+            
+        case 1: return 1
+        default: return 0
         }
-        return songs.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       guard let cell = tableView.dequeueReusableCell(withIdentifier: "SongTableViewCell", for: indexPath) as? SongTableViewCell else { return UITableViewCell() }
-        if isFiltering {
-            cell.song = filteredSong[indexPath.row]
-        } else {
-            cell.song = songs[indexPath.row]
-        }
         
-        cell.backgroundColor = .clear
-        cell.selectionStyle = .none
-        return cell
+        switch indexPath.section{
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SongTableViewCell.reuseIdentifier, for: indexPath) as? SongTableViewCell else { return UITableViewCell() }
+            if isFiltering {
+                cell.song = filteredSong[indexPath.row]
+            } else {
+                cell.song = songs[indexPath.row]
+            }
+            
+            cell.backgroundColor = .clear
+            cell.selectionStyle = .none
+            return cell
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: LikeSongsTableViewCell.reuseIdentifier, for: indexPath) as? LikeSongsTableViewCell else { return UITableViewCell() }
+            cell.backgroundColor = .clear
+            cell.selectionStyle = .none
+            return cell
+        default: return UITableViewCell()
+        }
     }
     
     func animatedTableView() {
         tableView.reloadData()
-        let cells = tableView.visibleCells as! [SongTableViewCell]
+        let cells = tableView.visibleCells as? [SongTableViewCell]
         var delay: Double = 0
-        for cell in cells {
-            cell.transform = CGAffineTransform(translationX: 0,
-                                               y: tableView.bounds.height)
-            UIView.animate(withDuration: 1.5,
-                           delay: delay * 0.05,
-                           usingSpringWithDamping: 0.8,
-                           initialSpringVelocity: 0,
-                           options: .curveEaseInOut) {
-                cell.transform = CGAffineTransform.identity
+        if let str = cells {
+            for cell in str {
+                cell.transform = CGAffineTransform(translationX: 0,
+                                                   y: tableView.bounds.height)
+                UIView.animate(withDuration: 1.5,
+                               delay: delay * 0.05,
+                               usingSpringWithDamping: 0.8,
+                               initialSpringVelocity: 0,
+                               options: .curveEaseInOut) {
+                    cell.transform = CGAffineTransform.identity
+                }
+                delay += 1
             }
-            delay += 1
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.section == 0 else { return }
         if isFiltering {
             let vc = MusicPlayerViewController(songs: filteredSong, index: indexPath.row)
-//            present(vc, animated: true)
             navigationController?.pushViewController(vc, animated: true)
         } else {
             let vc = MusicPlayerViewController(songs: songs, index: indexPath.row)
-//            present(vc, animated: true)
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -139,4 +165,3 @@ extension TableViewController: UISearchResultsUpdating {
         tableView.reloadData()
     }
 }
-

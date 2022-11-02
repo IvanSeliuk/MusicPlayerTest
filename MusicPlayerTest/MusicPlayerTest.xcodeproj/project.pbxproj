@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6D09E1CF28EF7618005FD0B9 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D09E1CE28EF7618005FD0B9 /* TableViewController.swift */; };
 		6D09E1D228EF7C23005FD0B9 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D09E1D128EF7C23005FD0B9 /* SongTableViewCell.swift */; };
+		6D257CEE290977860042A70A /* SongCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D257CED290977860042A70A /* SongCollectionViewCell.swift */; };
 		6D37B60628F6BDCC0066EAB9 /* jordan-burns-weekend-slowed.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D37B5FE28F6BDCA0066EAB9 /* jordan-burns-weekend-slowed.mp3 */; };
 		6D37B60728F6BDCC0066EAB9 /* Shouse - Love Tonight (David Guetta Remix).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D37B5FF28F6BDCA0066EAB9 /* Shouse - Love Tonight (David Guetta Remix).mp3 */; };
 		6D37B60828F6BDCC0066EAB9 /* Adele - Someone Like You (Messed Dubst.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D37B60028F6BDCA0066EAB9 /* Adele - Someone Like You (Messed Dubst.mp3 */; };
@@ -20,6 +21,9 @@
 		6D3BF91828EA0F29001528BA /* AuthViewController + UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3BF91728EA0F29001528BA /* AuthViewController + UI.swift */; };
 		6D3BF91C28EA316E001528BA /* Extension + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3BF91B28EA316E001528BA /* Extension + String.swift */; };
 		6D3D640F28F6D41500405274 /* TableViewController + UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3D640E28F6D41500405274 /* TableViewController + UI.swift */; };
+		6D3D89A82911A8FC00E973A3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3D89A62911A8FC00E973A3 /* CollectionViewCell.swift */; };
+		6D3D89A92911A8FC00E973A3 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D3D89A72911A8FC00E973A3 /* CollectionViewCell.xib */; };
+		6D3F1DED290D7A8400583081 /* LikeSongsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3F1DEC290D7A8400583081 /* LikeSongsTableViewCell.swift */; };
 		6D4DA9F428C7AB3A003D6B6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4DA9F328C7AB3A003D6B6A /* AppDelegate.swift */; };
 		6D4DA9F628C7AB3A003D6B6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4DA9F528C7AB3A003D6B6A /* SceneDelegate.swift */; };
 		6D4DA9FD28C7AB3C003D6B6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D4DA9FC28C7AB3C003D6B6A /* Assets.xcassets */; };
@@ -43,6 +47,7 @@
 		6016E12BEA8B5CB2CF5C50D8 /* Pods-MusicPlayerTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicPlayerTest.release.xcconfig"; path = "Target Support Files/Pods-MusicPlayerTest/Pods-MusicPlayerTest.release.xcconfig"; sourceTree = "<group>"; };
 		6D09E1CE28EF7618005FD0B9 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		6D09E1D128EF7C23005FD0B9 /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
+		6D257CED290977860042A70A /* SongCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCollectionViewCell.swift; sourceTree = "<group>"; };
 		6D37B5FE28F6BDCA0066EAB9 /* jordan-burns-weekend-slowed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "jordan-burns-weekend-slowed.mp3"; sourceTree = "<group>"; };
 		6D37B5FF28F6BDCA0066EAB9 /* Shouse - Love Tonight (David Guetta Remix).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Shouse - Love Tonight (David Guetta Remix).mp3"; sourceTree = "<group>"; };
 		6D37B60028F6BDCA0066EAB9 /* Adele - Someone Like You (Messed Dubst.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Adele - Someone Like You (Messed Dubst.mp3"; sourceTree = "<group>"; };
@@ -54,6 +59,9 @@
 		6D3BF91728EA0F29001528BA /* AuthViewController + UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthViewController + UI.swift"; sourceTree = "<group>"; };
 		6D3BF91B28EA316E001528BA /* Extension + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + String.swift"; sourceTree = "<group>"; };
 		6D3D640E28F6D41500405274 /* TableViewController + UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController + UI.swift"; sourceTree = "<group>"; };
+		6D3D89A62911A8FC00E973A3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		6D3D89A72911A8FC00E973A3 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		6D3F1DEC290D7A8400583081 /* LikeSongsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeSongsTableViewCell.swift; sourceTree = "<group>"; };
 		6D4DA9F028C7AB3A003D6B6A /* MusicPlayerTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayerTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D4DA9F328C7AB3A003D6B6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D4DA9F528C7AB3A003D6B6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,9 +114,29 @@
 		6D09E1D028EF7C0F005FD0B9 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				6D09E1D128EF7C23005FD0B9 /* SongTableViewCell.swift */,
+				6D257CEB290977650042A70A /* TableCell */,
+				6D257CEC290977730042A70A /* CollectionCell */,
+				6D3D89A62911A8FC00E973A3 /* CollectionViewCell.swift */,
+				6D3D89A72911A8FC00E973A3 /* CollectionViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		6D257CEB290977650042A70A /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				6D09E1D128EF7C23005FD0B9 /* SongTableViewCell.swift */,
+				6D3F1DEC290D7A8400583081 /* LikeSongsTableViewCell.swift */,
+			);
+			path = TableCell;
+			sourceTree = "<group>";
+		};
+		6D257CEC290977730042A70A /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				6D257CED290977860042A70A /* SongCollectionViewCell.swift */,
+			);
+			path = CollectionCell;
 			sourceTree = "<group>";
 		};
 		6D3BF91228EA0E85001528BA /* Controllers */ = {
@@ -359,6 +387,7 @@
 				6D37B60B28F6BDCC0066EAB9 /* ODESZA feat. Bettye Lavette - The Last Goodbye.mp3 in Resources */,
 				6D6B090928E604C000179075 /* GoogleService-Info.plist in Resources */,
 				6D37B60928F6BDCC0066EAB9 /* Jnr Choi - TO THE MOON (feat. Sam Tompkins).mp3 in Resources */,
+				6D3D89A92911A8FC00E973A3 /* CollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,12 +442,15 @@
 			files = (
 				6D09E1D228EF7C23005FD0B9 /* SongTableViewCell.swift in Sources */,
 				6D4DAA1028C7B15F003D6B6A /* Songs.swift in Sources */,
+				6D3D89A82911A8FC00E973A3 /* CollectionViewCell.swift in Sources */,
 				6D4DAA1528C7EA37003D6B6A /* MusicPlayerViewController.swift in Sources */,
+				6D257CEE290977860042A70A /* SongCollectionViewCell.swift in Sources */,
 				6D3D640F28F6D41500405274 /* TableViewController + UI.swift in Sources */,
 				6D3BF91C28EA316E001528BA /* Extension + String.swift in Sources */,
 				6D4DA9F428C7AB3A003D6B6A /* AppDelegate.swift in Sources */,
 				6D6B090B28E7288000179075 /* AuthViewController.swift in Sources */,
 				6D4DA9F628C7AB3A003D6B6A /* SceneDelegate.swift in Sources */,
+				6D3F1DED290D7A8400583081 /* LikeSongsTableViewCell.swift in Sources */,
 				6D4DAA1328C7B76A003D6B6A /* MediaPlayer.swift in Sources */,
 				6D09E1CF28EF7618005FD0B9 /* TableViewController.swift in Sources */,
 				6D3BF91828EA0F29001528BA /* AuthViewController + UI.swift in Sources */,

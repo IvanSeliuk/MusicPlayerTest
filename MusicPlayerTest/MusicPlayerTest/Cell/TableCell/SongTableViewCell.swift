@@ -8,7 +8,7 @@
 import UIKit
 
 final class SongTableViewCell: UITableViewCell {
-    
+    static let reuseIdentifier = "SongTableViewCell"
     var song: Song? {
         didSet {
             if let song {
@@ -65,38 +65,38 @@ final class SongTableViewCell: UITableViewCell {
     
     private func setupView() {
         [songImage, songNameLabel, artistNameLabel, arrowImage].forEach { view in
-            contentView.addSubview(view)
+            addSubview(view)
         }
         setupConstraints()
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            songImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            songImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            songImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            songImage.topAnchor.constraint(equalTo: topAnchor, constant: 4),
             songImage.widthAnchor.constraint(equalToConstant: 100),
             songImage.heightAnchor.constraint(equalToConstant: 100),
-            songImage.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -16)
+            songImage.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -4)
         ])
         
         NSLayoutConstraint.activate([
             songNameLabel.leadingAnchor.constraint(equalTo: songImage.trailingAnchor, constant: 16),
-            songNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            songNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
+            songNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            songNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
             ])
         
         NSLayoutConstraint.activate([
             artistNameLabel.leadingAnchor.constraint(equalTo: songImage.trailingAnchor, constant: 16),
             artistNameLabel.topAnchor.constraint(equalTo: songNameLabel.bottomAnchor, constant: 8),
             artistNameLabel.trailingAnchor.constraint(equalTo: arrowImage.leadingAnchor, constant: 0),
-            artistNameLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -16)
+            artistNameLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -16)
             ])
         
         NSLayoutConstraint.activate([
-            arrowImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            arrowImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             arrowImage.centerYAnchor.constraint(equalTo: songImage.centerYAnchor),
-            arrowImage.widthAnchor.constraint(equalToConstant: 20),
-            arrowImage.heightAnchor.constraint(equalToConstant: 20),
+            arrowImage.widthAnchor.constraint(equalToConstant: 12),
+            arrowImage.heightAnchor.constraint(equalToConstant: 12),
             ])
     }
 }

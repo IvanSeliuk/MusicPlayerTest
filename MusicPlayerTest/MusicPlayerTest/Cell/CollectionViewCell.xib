@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CollectionViewCell" customModule="MusicPlayerTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="220"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="180" height="220"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czw-PY-Odv">
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="220"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fake" translatesAutoresizingMaskIntoConstraints="NO" id="pZr-dh-I16">
+                                <rect key="frame" x="8" y="8" width="164" height="169.66666666666666"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Shouse - Love Tonight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jk1-tf-1Rj">
+                                <rect key="frame" x="8" y="185.66666666666666" width="164" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="ODESZA feat. Bettye Lavette" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gD4-qY-U1Q">
+                                <rect key="frame" x="8" y="205.66666666666666" width="164" height="14.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gD4-qY-U1Q" firstAttribute="leading" secondItem="czw-PY-Odv" secondAttribute="leading" constant="8" id="0fB-hU-WBB"/>
+                            <constraint firstItem="jk1-tf-1Rj" firstAttribute="top" secondItem="pZr-dh-I16" secondAttribute="bottom" constant="8" id="4jV-Sd-jva"/>
+                            <constraint firstItem="pZr-dh-I16" firstAttribute="leading" secondItem="czw-PY-Odv" secondAttribute="leading" constant="8" id="C86-q2-0St"/>
+                            <constraint firstAttribute="bottom" secondItem="gD4-qY-U1Q" secondAttribute="bottom" id="Oof-zP-3d3"/>
+                            <constraint firstAttribute="trailing" secondItem="pZr-dh-I16" secondAttribute="trailing" constant="8" id="XAW-IG-oFh"/>
+                            <constraint firstItem="jk1-tf-1Rj" firstAttribute="leading" secondItem="czw-PY-Odv" secondAttribute="leading" constant="8" id="axa-dz-gpT"/>
+                            <constraint firstItem="gD4-qY-U1Q" firstAttribute="top" secondItem="jk1-tf-1Rj" secondAttribute="bottom" constant="2" id="eZ4-Yb-E0V"/>
+                            <constraint firstAttribute="trailing" secondItem="gD4-qY-U1Q" secondAttribute="trailing" constant="8" id="f7h-1N-Qej"/>
+                            <constraint firstAttribute="trailing" secondItem="jk1-tf-1Rj" secondAttribute="trailing" constant="8" id="jUc-Vm-yaT"/>
+                            <constraint firstItem="pZr-dh-I16" firstAttribute="top" secondItem="czw-PY-Odv" secondAttribute="top" constant="8" id="tP8-vn-B7n"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="czw-PY-Odv" secondAttribute="trailing" id="5bD-b9-yD9"/>
+                <constraint firstItem="czw-PY-Odv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Nqa-zd-tyb"/>
+                <constraint firstItem="czw-PY-Odv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="pva-Kv-Ts8"/>
+                <constraint firstAttribute="bottom" secondItem="czw-PY-Odv" secondAttribute="bottom" id="tBa-PB-RZi"/>
+            </constraints>
+            <size key="customSize" width="205" height="234"/>
+            <point key="canvasLocation" x="93.07692307692308" y="5.6872037914691944"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Fake" width="500" height="500"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
