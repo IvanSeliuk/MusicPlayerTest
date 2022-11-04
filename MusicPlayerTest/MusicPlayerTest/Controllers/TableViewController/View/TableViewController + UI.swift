@@ -71,7 +71,7 @@ extension TableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         switch indexPath.section {
-        case 0: return 116
+        case 0: return 108
         case 1: return 250
         default: return 0
         }
@@ -81,12 +81,7 @@ extension TableViewController: UITableViewDelegate {
 extension TableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0:
-            if isFiltering {
-                return filteredSong.count
-            }
-            return songs.count
-            
+        case 0: return isFiltering ? filteredSong.count : songs.count
         case 1: return 1
         default: return 0
         }
@@ -101,17 +96,18 @@ extension TableViewController: UITableViewDataSource {
         switch indexPath.section{
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SongTableViewCell.reuseIdentifier, for: indexPath) as? SongTableViewCell else { return UITableViewCell() }
-            if isFiltering {
-                cell.song = filteredSong[indexPath.row]
-            } else {
-                cell.song = songs[indexPath.row]
-            }
             
+            cell.song = isFiltering ? filteredSong[indexPath.row] : songs[indexPath.row]
             cell.backgroundColor = .clear
             cell.selectionStyle = .none
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: LikeSongsTableViewCell.reuseIdentifier, for: indexPath) as? LikeSongsTableViewCell else { return UITableViewCell() }
+            
+            cell.userClickLikedSong = { indexSong in
+                let vc = MusicPlayerViewController(songs: self.songs, index: indexSong)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
             cell.backgroundColor = .clear
             cell.selectionStyle = .none
             return cell

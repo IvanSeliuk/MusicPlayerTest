@@ -9,8 +9,11 @@ import UIKit
 
 class LikeSongsTableViewCell: UITableViewCell {
     static let reuseIdentifier = "LikeSongsTableViewCell"
+    static let shared = LikeSongsTableViewCell()
     let songs = Song.getSong().sorted(by: {$0.name < $1.name})
+    var likedSongs = [Song]()
     
+    var userClickLikedSong: ((Int) -> ())?
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -75,7 +78,7 @@ class LikeSongsTableViewCell: UITableViewCell {
     
     private func setupView() {
         [viewCell, showAllLabel, showAllButton, likedSongLabel, collectionView].forEach { view in
-            addSubview(view)
+            contentView.addSubview(view)
         }
         setupConstraints()
     }
@@ -127,6 +130,7 @@ extension LikeSongsTableViewCell: UICollectionViewDelegateFlowLayout {
   
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("clic")
+        userClickLikedSong?(indexPath.item)
         }
 }
 

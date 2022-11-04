@@ -61,8 +61,9 @@ class SongCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupView() {
-        [viewCell, songImage, songNameLabel, artistNameLabel].forEach { views in
-            addSubview(views)
+        contentView.addSubview(viewCell)
+        [songImage, songNameLabel, artistNameLabel].forEach { views in
+            viewCell.addSubview(views)
         }
         setupConstraints()
     }
