@@ -1,15 +1,13 @@
 //
-//  TableViewController + UI.swift
+//  AllLikeSongViewController + Ui.swift
 //  MusicPlayerTest
 //
-//  Created by Иван Селюк on 12.10.22.
+//  Created by Иван Селюк on 4.11.22.
 //
 
 import UIKit
-import Firebase
 
-extension TableViewController {
-    
+extension AllLikeSongViewController {
     func setupView() {
         view.addSubview(backgroundImage)
         view.addSubview(tableView)
@@ -17,16 +15,16 @@ extension TableViewController {
     }
     
     func setupNavigationBar() {
-        navigationItem.title = "My Music"
+        navigationItem.title = "My liked music"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "MarkerFelt-Wide", size: 30)!]
         navigationController?.navigationBar.tintColor = .white
         navigationItem.hidesBackButton = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "person.crop.square",
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "arrowshape.backward.fill",
                            withConfiguration: UIImage.SymbolConfiguration(pointSize: 30)),
             style: .plain,
             target: self,
-            action: #selector(signOutAction))
+            action: #selector(backMyMusic))
     }
     
     func setupSearchBar() {
@@ -56,18 +54,14 @@ extension TableViewController {
         ])
     }
     
-    @objc private func signOutAction() {
-        do {
-            try Auth.auth().signOut()
-        } catch {
-            print(error)
-        }
+    @objc private func backMyMusic() {
+        let vc = TableViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
-
 //MARK: - TableViewDelegate
 
-extension TableViewController: UITableViewDelegate {
+extension AllLikeSongViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         switch indexPath.section {
@@ -78,65 +72,37 @@ extension TableViewController: UITableViewDelegate {
     }
 }
 
-extension TableViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0: return isFiltering ? filteredSong.count : songs.count
-        case 1: return 1
-        default: return 0
-        }
-    }
+extension AllLikeSongViewController: UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return isFiltering ? filteredSong.count : songs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch indexPath.section{
-        case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SongTableViewCell.reuseIdentifier, for: indexPath) as? SongTableViewCell else { return UITableViewCell() }
-            
-            cell.song = isFiltering ? filteredSong[indexPath.row] : songs[indexPath.row]
-            cell.backgroundColor = .clear
-            cell.selectionStyle = .none
-            return cell
-        case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: LikeSongsTableViewCell.reuseIdentifier, for: indexPath) as? LikeSongsTableViewCell else { return UITableViewCell() }
-            
-            cell.userClickLikedSong = { [unowned self] indexSong in
-                let vc = MusicPlayerViewController(songs: self.songs , index: indexSong)
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
-            
-            cell.userClickButtonShowAll = { [weak self] in
-                let vc = AllLikeSongViewController()
-                self?.navigationController?.pushViewController(vc, animated: true)
-            }
-            cell.backgroundColor = .clear
-            cell.selectionStyle = .none
-            return cell
-        default: return UITableViewCell()
-        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SongTableViewCell.reuseIdentifier, for: indexPath) as? SongTableViewCell else { return UITableViewCell() }
+        cell.song = isFiltering ? filteredSong[indexPath.row] : songs[indexPath.row]
+        cell.backgroundColor = .clear
+        cell.selectionStyle = .none
+        return cell
     }
     
     func animatedTableView() {
         tableView.reloadData()
-        let cells = tableView.visibleCells as? [SongTableViewCell]
+        let cells = tableView.visibleCells as! [SongTableViewCell]
         var delay: Double = 0
-        if let str = cells {
-            for cell in str {
-                cell.transform = CGAffineTransform(translationX: 0,
-                                                   y: tableView.bounds.height)
-                UIView.animate(withDuration: 1.5,
-                               delay: delay * 0.05,
-                               usingSpringWithDamping: 0.8,
-                               initialSpringVelocity: 0,
-                               options: .curveEaseInOut) {
-                    cell.transform = CGAffineTransform.identity
-                }
-                delay += 1
+        for cell in cells {
+            cell.transform = CGAffineTransform(translationX: 0,
+                                               y: tableView.bounds.height)
+            UIView.animate(withDuration: 1.5,
+                           delay: delay * 0.05,
+                           usingSpringWithDamping: 0.8,
+                           initialSpringVelocity: 0,
+                           options: .curveEaseInOut) {
+                cell.transform = CGAffineTransform.identity
             }
+            delay += 1
         }
     }
     
@@ -154,7 +120,7 @@ extension TableViewController: UITableViewDataSource {
 
 //MARK: - SearchController
 
-extension TableViewController: UISearchResultsUpdating {
+extension AllLikeSongViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
     }

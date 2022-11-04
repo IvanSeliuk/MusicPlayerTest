@@ -14,6 +14,7 @@ class LikeSongsTableViewCell: UITableViewCell {
     var likedSongs = [Song]()
     
     var userClickLikedSong: ((Int) -> ())?
+    var userClickButtonShowAll: (() -> ())?
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -59,6 +60,7 @@ class LikeSongsTableViewCell: UITableViewCell {
     
     @objc private func showAllButtonAction() {
         print("123")
+        userClickButtonShowAll?()
     }
     
     lazy var collectionView: UICollectionView = {
