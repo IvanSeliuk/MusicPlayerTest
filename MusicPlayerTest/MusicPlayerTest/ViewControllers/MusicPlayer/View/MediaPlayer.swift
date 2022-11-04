@@ -203,6 +203,8 @@ final class MediaPlayer: UIView {
         setupConstraints()
     }
     
+    //MARK: - Constraints
+    
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
@@ -259,6 +261,8 @@ final class MediaPlayer: UIView {
             volumeStack.topAnchor.constraint(equalTo: controlStack.bottomAnchor, constant: 40)
             ])
     }
+    
+    //MARK: - Setup Media Player
     
     private func setupPlayer(song: Song) {
         guard let url = Bundle.main.url(forResource: song.fileName, withExtension: "mp3") else { return }
