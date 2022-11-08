@@ -37,6 +37,10 @@
 		6D6B090B28E7288000179075 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B090A28E7288000179075 /* AuthViewController.swift */; };
 		6D6B090E28E8841800179075 /* Extension + StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B090D28E8841800179075 /* Extension + StackView.swift */; };
 		6DC049B628EB8F3A000F426E /* Extension + UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC049B528EB8F3A000F426E /* Extension + UILabel.swift */; };
+		6DF426A0291A65930029B720 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF4269F291A65930029B720 /* CoreDataManager.swift */; };
+		6DF426A3291A696A0029B720 /* MusicPlayerDataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DF426A1291A696A0029B720 /* MusicPlayerDataBase.xcdatamodeld */; };
+		6DF426AF291A71A40029B720 /* LikeSongDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF426AD291A71A40029B720 /* LikeSongDB+CoreDataClass.swift */; };
+		6DF426B0291A71A40029B720 /* LikeSongDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF426AE291A71A40029B720 /* LikeSongDB+CoreDataProperties.swift */; };
 		6DFCFA2029155B16003B1B85 /* AllLikeSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFCFA1F29155B16003B1B85 /* AllLikeSongViewController.swift */; };
 		6DFCFA2229155B54003B1B85 /* AllLikeSongViewController + Ui.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFCFA2129155B54003B1B85 /* AllLikeSongViewController + Ui.swift */; };
 		7A1BE85213C3F1F45E960B92 /* Pods_MusicPlayerTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C083F8DD062F9BFDAA4E405E /* Pods_MusicPlayerTest.framework */; };
@@ -77,6 +81,10 @@
 		6D6B090A28E7288000179075 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		6D6B090D28E8841800179075 /* Extension + StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + StackView.swift"; sourceTree = "<group>"; };
 		6DC049B528EB8F3A000F426E /* Extension + UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UILabel.swift"; sourceTree = "<group>"; };
+		6DF4269F291A65930029B720 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		6DF426A2291A696A0029B720 /* MusicPlayerDataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicPlayerDataBase.xcdatamodel; sourceTree = "<group>"; };
+		6DF426AD291A71A40029B720 /* LikeSongDB+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LikeSongDB+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6DF426AE291A71A40029B720 /* LikeSongDB+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LikeSongDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6DFCFA1F29155B16003B1B85 /* AllLikeSongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLikeSongViewController.swift; sourceTree = "<group>"; };
 		6DFCFA2129155B54003B1B85 /* AllLikeSongViewController + Ui.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllLikeSongViewController + Ui.swift"; sourceTree = "<group>"; };
 		C083F8DD062F9BFDAA4E405E /* Pods_MusicPlayerTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicPlayerTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +186,7 @@
 		6D3BF91628EA0EEF001528BA /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				6DF4269E291A64F60029B720 /* Manager */,
 				6D6B090C28E883FB00179075 /* Extension */,
 				6D4DAA0728C7B0B3003D6B6A /* Music */,
 			);
@@ -247,6 +256,7 @@
 				6D4DA9FE28C7AB3C003D6B6A /* LaunchScreen.storyboard */,
 				6D4DAA0128C7AB3C003D6B6A /* Info.plist */,
 				6D6B090828E604C000179075 /* GoogleService-Info.plist */,
+				6DF426A1291A696A0029B720 /* MusicPlayerDataBase.xcdatamodeld */,
 			);
 			path = MusicPlayerTest;
 			sourceTree = "<group>";
@@ -272,6 +282,7 @@
 		6D4DAA0E28C7B14F003D6B6A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6DF426A4291A6A850029B720 /* ModelDataBase */,
 				6D4DAA0F28C7B15F003D6B6A /* Songs.swift */,
 			);
 			path = Model;
@@ -301,6 +312,23 @@
 				6DC049B528EB8F3A000F426E /* Extension + UILabel.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		6DF4269E291A64F60029B720 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				6DF4269F291A65930029B720 /* CoreDataManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		6DF426A4291A6A850029B720 /* ModelDataBase */ = {
+			isa = PBXGroup;
+			children = (
+				6DF426AD291A71A40029B720 /* LikeSongDB+CoreDataClass.swift */,
+				6DF426AE291A71A40029B720 /* LikeSongDB+CoreDataProperties.swift */,
+			);
+			path = ModelDataBase;
 			sourceTree = "<group>";
 		};
 		6DFCFA1E29155AD5003B1B85 /* AllLikeSong */ = {
@@ -466,8 +494,12 @@
 				6D09E1D228EF7C23005FD0B9 /* SongTableViewCell.swift in Sources */,
 				6D4DAA1028C7B15F003D6B6A /* Songs.swift in Sources */,
 				6D4DAA1528C7EA37003D6B6A /* MusicPlayerViewController.swift in Sources */,
+				6DF426A0291A65930029B720 /* CoreDataManager.swift in Sources */,
+				6DF426AF291A71A40029B720 /* LikeSongDB+CoreDataClass.swift in Sources */,
 				6D257CEE290977860042A70A /* SongCollectionViewCell.swift in Sources */,
 				6D3D640F28F6D41500405274 /* TableViewController + UI.swift in Sources */,
+				6DF426B0291A71A40029B720 /* LikeSongDB+CoreDataProperties.swift in Sources */,
+				6DF426A3291A696A0029B720 /* MusicPlayerDataBase.xcdatamodeld in Sources */,
 				6D3BF91C28EA316E001528BA /* Extension + String.swift in Sources */,
 				6DFCFA2229155B54003B1B85 /* AllLikeSongViewController + Ui.swift in Sources */,
 				6D4DA9F428C7AB3A003D6B6A /* AppDelegate.swift in Sources */,
@@ -698,6 +730,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6DF426A1291A696A0029B720 /* MusicPlayerDataBase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6DF426A2291A696A0029B720 /* MusicPlayerDataBase.xcdatamodel */,
+			);
+			currentVersion = 6DF426A2291A696A0029B720 /* MusicPlayerDataBase.xcdatamodel */;
+			path = MusicPlayerDataBase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6D4DA9E828C7AB3A003D6B6A /* Project object */;
 }

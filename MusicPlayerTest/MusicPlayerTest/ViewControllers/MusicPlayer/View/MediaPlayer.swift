@@ -14,7 +14,11 @@ final class MediaPlayer: UIView {
     private var player = AVAudioPlayer()
     private var timer: Timer?
     private var playingIndex: Int
-    private var isLike: Bool = false
+    
+    var songId: Int64 = -1
+    private var liked: Bool {
+        return CoreDataManager.shared.isLikedSong(from: songId) ?? false
+    }
     
     var presentAlertSettings: (() -> Void)?
     
@@ -25,7 +29,7 @@ final class MediaPlayer: UIView {
         setupView()
         animationNameView()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -259,12 +263,13 @@ final class MediaPlayer: UIView {
             volumeStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             volumeStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             volumeStack.topAnchor.constraint(equalTo: controlStack.bottomAnchor, constant: 40)
-            ])
+        ])
     }
     
     //MARK: - Setup Media Player
     
     private func setupPlayer(song: Song) {
+        let config = UIImage.SymbolConfiguration(pointSize: 25)
         guard let url = Bundle.main.url(forResource: song.fileName, withExtension: "mp3") else { return }
         if timer == nil {
             timer = Timer.scheduledTimer(timeInterval: 0, target: self, selector: #selector(updateProcess), userInfo: nil, repeats: true)
@@ -272,7 +277,13 @@ final class MediaPlayer: UIView {
         nameSongLabel.text = song.name
         artistNameLabel.text = song.artist
         songImage.image = UIImage(named: song.image)
+        songId = song.idSong
         
+        if liked {
+            likeButton.setImage(UIImage(systemName: "heart.fill", withConfiguration: config), for: .normal)
+        } else {
+            likeButton.setImage(UIImage(systemName: "heart", withConfiguration: config), for: .normal)
+        }
         do {
             player = try AVAudioPlayer(contentsOf: url)
             player.delegate = self
@@ -351,12 +362,10 @@ final class MediaPlayer: UIView {
         player.volume = volumSlider.value
     }
     
-    
     @objc private func takeVolumeDown() {
         player.volume = 0
         volumSlider.value = 0
     }
-    
     
     @objc private func takeVolumeUp() {
         player.volume = 1.0
@@ -364,14 +373,11 @@ final class MediaPlayer: UIView {
     }
     
     @objc private func clickLikeSong() {
-        if isLike {
-            let config = UIImage.SymbolConfiguration(pointSize: 25)
-            likeButton.setImage(UIImage(systemName: "heart", withConfiguration: config), for: .normal)
-            isLike = false
-        } else {
-            let config = UIImage.SymbolConfiguration(pointSize: 25)
+        let config = UIImage.SymbolConfiguration(pointSize: 25)
+        if CoreDataManager.shared.likeOrRemoveSong(where: songId, by: song[playingIndex]) == .added {
             likeButton.setImage(UIImage(systemName: "heart.fill", withConfiguration: config), for: .normal)
-            isLike = true
+        } else {
+            likeButton.setImage(UIImage(systemName: "heart", withConfiguration: config), for: .normal)
         }
     }
     

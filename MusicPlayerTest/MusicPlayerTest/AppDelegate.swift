@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
+    //    CoreDataManager.shared.clearDataBase()
         return true
     }
     

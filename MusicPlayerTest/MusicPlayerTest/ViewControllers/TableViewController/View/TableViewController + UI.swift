@@ -69,7 +69,6 @@ extension TableViewController {
 
 extension TableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         switch indexPath.section {
         case 0: return 108
         case 1: return 250
@@ -88,11 +87,10 @@ extension TableViewController: UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return LikeSongsTableViewCell.shared.likedSongs.isEmpty ? 1 : 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch indexPath.section{
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SongTableViewCell.reuseIdentifier, for: indexPath) as? SongTableViewCell else { return UITableViewCell() }
@@ -105,7 +103,7 @@ extension TableViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: LikeSongsTableViewCell.reuseIdentifier, for: indexPath) as? LikeSongsTableViewCell else { return UITableViewCell() }
             
             cell.userClickLikedSong = { [unowned self] indexSong in
-                let vc = MusicPlayerViewController(songs: self.songs , index: indexSong)
+                let vc = MusicPlayerViewController(songs: LikeSongsTableViewCell.shared.likedSongs , index: indexSong)
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             

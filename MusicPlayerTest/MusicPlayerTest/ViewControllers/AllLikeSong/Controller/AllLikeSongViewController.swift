@@ -8,8 +8,6 @@
 import UIKit
 
 class AllLikeSongViewController: UIViewController {
-
-    var songs = Song.getSong().sorted(by: {$0.name < $1.name})
     
     let searchController = UISearchController(searchResultsController: nil)
     var filteredSong = [Song]()
@@ -53,8 +51,3 @@ class AllLikeSongViewController: UIViewController {
         animatedTableView()
     }
 }
-
-
- 
-
-

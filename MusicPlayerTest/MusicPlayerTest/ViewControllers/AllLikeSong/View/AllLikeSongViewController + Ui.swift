@@ -76,13 +76,13 @@ extension AllLikeSongViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isFiltering ? filteredSong.count : songs.count
+        return isFiltering ? filteredSong.count : CoreDataManager.shared.getLikedSongs().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SongTableViewCell.reuseIdentifier, for: indexPath) as? SongTableViewCell else { return UITableViewCell() }
-        cell.song = isFiltering ? filteredSong[indexPath.row] : songs[indexPath.row]
+        cell.song = isFiltering ? filteredSong[indexPath.row] : CoreDataManager.shared.getLikedSongs()[indexPath.row]
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
         return cell
@@ -112,7 +112,7 @@ extension AllLikeSongViewController: UITableViewDataSource {
             let vc = MusicPlayerViewController(songs: filteredSong, index: indexPath.row)
             navigationController?.pushViewController(vc, animated: true)
         } else {
-            let vc = MusicPlayerViewController(songs: songs, index: indexPath.row)
+            let vc = MusicPlayerViewController(songs: CoreDataManager.shared.getLikedSongs(), index: indexPath.row)
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -126,7 +126,7 @@ extension AllLikeSongViewController: UISearchResultsUpdating {
     }
     
     private func filterContentForSearchText(_ searchText: String) {
-        filteredSong = songs.filter({ songs in
+        filteredSong = CoreDataManager.shared.getLikedSongs().filter({ songs in
             return songs.name.lowercased().contains(searchText.lowercased())
         })
         tableView.reloadData()

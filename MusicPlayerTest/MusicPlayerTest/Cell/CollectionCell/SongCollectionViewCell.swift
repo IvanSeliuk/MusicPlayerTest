@@ -90,7 +90,7 @@ class SongCollectionViewCell: UICollectionViewCell {
             songNameLabel.leadingAnchor.constraint(equalTo: viewCell.leadingAnchor, constant: 8),
             songNameLabel.trailingAnchor.constraint(equalTo: viewCell.trailingAnchor, constant: -8),
             songNameLabel.bottomAnchor.constraint(equalTo: artistNameLabel.topAnchor, constant: 2)
-            ])
+        ])
         songNameLabel.setContentHuggingPriority(.defaultLow, for: .vertical)
         songNameLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         
@@ -98,11 +98,11 @@ class SongCollectionViewCell: UICollectionViewCell {
             artistNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             artistNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             artistNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
-            ])
+        ])
         artistNameLabel.setContentHuggingPriority(.defaultLow, for: .vertical)
         artistNameLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
     }
 }
 
-    
+
 

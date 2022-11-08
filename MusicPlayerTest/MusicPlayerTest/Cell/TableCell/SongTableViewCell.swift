@@ -83,20 +83,20 @@ final class SongTableViewCell: UITableViewCell {
             songNameLabel.leadingAnchor.constraint(equalTo: songImage.trailingAnchor, constant: 16),
             songNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             songNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
-            ])
+        ])
         
         NSLayoutConstraint.activate([
             artistNameLabel.leadingAnchor.constraint(equalTo: songImage.trailingAnchor, constant: 16),
             artistNameLabel.topAnchor.constraint(equalTo: songNameLabel.bottomAnchor, constant: 8),
             artistNameLabel.trailingAnchor.constraint(equalTo: arrowImage.leadingAnchor, constant: 0),
             artistNameLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -16)
-            ])
+        ])
         
         NSLayoutConstraint.activate([
             arrowImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             arrowImage.centerYAnchor.constraint(equalTo: songImage.centerYAnchor),
             arrowImage.widthAnchor.constraint(equalToConstant: 12),
             arrowImage.heightAnchor.constraint(equalToConstant: 12),
-            ])
+        ])
     }
 }

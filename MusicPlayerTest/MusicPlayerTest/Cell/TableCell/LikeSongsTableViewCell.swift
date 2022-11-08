@@ -10,8 +10,11 @@ import UIKit
 class LikeSongsTableViewCell: UITableViewCell {
     static let reuseIdentifier = "LikeSongsTableViewCell"
     static let shared = LikeSongsTableViewCell()
-    let songs = Song.getSong().sorted(by: {$0.name < $1.name})
-    var likedSongs = [Song]()
+    var likedSongs: [Song] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     var userClickLikedSong: ((Int) -> ())?
     var userClickButtonShowAll: (() -> ())?
@@ -59,7 +62,6 @@ class LikeSongsTableViewCell: UITableViewCell {
     }()
     
     @objc private func showAllButtonAction() {
-        print("123")
         userClickButtonShowAll?()
     }
     
@@ -69,20 +71,20 @@ class LikeSongsTableViewCell: UITableViewCell {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.backgroundColor = .clear
-       // collection.showsVerticalScrollIndicator = false
-       // collection.showsHorizontalScrollIndicator = false
+        collection.showsHorizontalScrollIndicator = false
         collection.delegate = self
         collection.dataSource = self
         collection.register(SongCollectionViewCell.self, forCellWithReuseIdentifier: SongCollectionViewCell.reuseIdentifier)
         
-       return collection
-   }()
+        return collection
+    }()
     
     private func setupView() {
         [viewCell, showAllLabel, showAllButton, likedSongLabel, collectionView].forEach { view in
             contentView.addSubview(view)
         }
         setupConstraints()
+        likedSongs = CoreDataManager.shared.getLikedSongs()
     }
     
     private func setupConstraints() {
@@ -115,7 +117,7 @@ class LikeSongsTableViewCell: UITableViewCell {
             collectionView.topAnchor.constraint(equalTo: viewCell.bottomAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
-            ])
+        ])
     }
 }
 
@@ -129,21 +131,20 @@ extension LikeSongsTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-  
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("clic")
         userClickLikedSong?(indexPath.item)
-        }
+    }
 }
 
 extension LikeSongsTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return songs.count
+        return likedSongs.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SongCollectionViewCell.reuseIdentifier, for: indexPath) as? SongCollectionViewCell else { return UICollectionViewCell() }
-        cell.song = songs[indexPath.row]
+        cell.song = likedSongs[indexPath.item]
         cell.backgroundColor = .clear
         return cell
     }
