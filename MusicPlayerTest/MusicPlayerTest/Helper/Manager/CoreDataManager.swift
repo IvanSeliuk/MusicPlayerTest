@@ -39,11 +39,13 @@ class CoreDataManager {
             like.setValues(by: song)
             context.insert(like)
             saveContext()
+            NotificationCenter.default.post(name: NSNotification.Name("likedDataBaseDidChange"), object: nil)
             return CurrentStateLike.added
         }
         //liked
         context.delete(object)
         saveContext()
+        NotificationCenter.default.post(name: NSNotification.Name("likedDataBaseDidChange"), object: nil)
         return CurrentStateLike.removed
     }
     

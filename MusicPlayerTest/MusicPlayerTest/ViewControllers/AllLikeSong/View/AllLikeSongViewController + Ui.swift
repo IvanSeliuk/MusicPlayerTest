@@ -76,13 +76,13 @@ extension AllLikeSongViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isFiltering ? filteredSong.count : CoreDataManager.shared.getLikedSongs().count
+        return isFiltering ? filteredSong.count : LikeSongsTableViewCell.shared.likedSongs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SongTableViewCell.reuseIdentifier, for: indexPath) as? SongTableViewCell else { return UITableViewCell() }
-        cell.song = isFiltering ? filteredSong[indexPath.row] : CoreDataManager.shared.getLikedSongs()[indexPath.row]
+        cell.song = isFiltering ? filteredSong[indexPath.row] : LikeSongsTableViewCell.shared.likedSongs[indexPath.row]
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
         return cell
@@ -112,7 +112,7 @@ extension AllLikeSongViewController: UITableViewDataSource {
             let vc = MusicPlayerViewController(songs: filteredSong, index: indexPath.row)
             navigationController?.pushViewController(vc, animated: true)
         } else {
-            let vc = MusicPlayerViewController(songs: CoreDataManager.shared.getLikedSongs(), index: indexPath.row)
+            let vc = MusicPlayerViewController(songs: LikeSongsTableViewCell.shared.likedSongs, index: indexPath.row)
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -126,7 +126,7 @@ extension AllLikeSongViewController: UISearchResultsUpdating {
     }
     
     private func filterContentForSearchText(_ searchText: String) {
-        filteredSong = CoreDataManager.shared.getLikedSongs().filter({ songs in
+        filteredSong = LikeSongsTableViewCell.shared.likedSongs.filter({ songs in
             return songs.name.lowercased().contains(searchText.lowercased())
         })
         tableView.reloadData()

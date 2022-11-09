@@ -85,6 +85,12 @@ class LikeSongsTableViewCell: UITableViewCell {
         }
         setupConstraints()
         likedSongs = CoreDataManager.shared.getLikedSongs()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(likedDataBaseDidChange), name: NSNotification.Name("likedDataBaseDidChange"), object: nil)
+    }
+    
+    @objc private func likedDataBaseDidChange() {
+        likedSongs = CoreDataManager.shared.getLikedSongs()
     }
     
     private func setupConstraints() {

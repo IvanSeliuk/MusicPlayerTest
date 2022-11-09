@@ -284,6 +284,7 @@ final class MediaPlayer: UIView {
         } else {
             likeButton.setImage(UIImage(systemName: "heart", withConfiguration: config), for: .normal)
         }
+        
         do {
             player = try AVAudioPlayer(contentsOf: url)
             player.delegate = self

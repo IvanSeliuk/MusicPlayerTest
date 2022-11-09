@@ -87,7 +87,7 @@ extension TableViewController: UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return LikeSongsTableViewCell.shared.likedSongs.isEmpty ? 1 : 2
+        return CoreDataManager.shared.getLikedSongs().isEmpty ? 1 : 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -103,7 +103,7 @@ extension TableViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: LikeSongsTableViewCell.reuseIdentifier, for: indexPath) as? LikeSongsTableViewCell else { return UITableViewCell() }
             
             cell.userClickLikedSong = { [unowned self] indexSong in
-                let vc = MusicPlayerViewController(songs: LikeSongsTableViewCell.shared.likedSongs , index: indexSong)
+                let vc = MusicPlayerViewController(songs: LikeSongsTableViewCell.shared.likedSongs, index: indexSong)
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             
