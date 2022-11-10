@@ -18,12 +18,12 @@ extension TableViewController {
     
     func setupNavigationBar() {
         navigationItem.title = "My Music"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "MarkerFelt-Wide", size: 30)!]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "MarkerFelt-Wide", size: 25)!]
         navigationController?.navigationBar.tintColor = .white
         navigationItem.hidesBackButton = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "person.crop.square",
-                           withConfiguration: UIImage.SymbolConfiguration(pointSize: 30)),
+                           withConfiguration: UIImage.SymbolConfiguration(pointSize: 20)),
             style: .plain,
             target: self,
             action: #selector(signOutAction))

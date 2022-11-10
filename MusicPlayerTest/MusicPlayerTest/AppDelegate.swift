@@ -12,8 +12,9 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        FirebaseApp.configure()
+        DispatchQueue.main.async {
+            FirebaseApp.configure()
+        }
         IQKeyboardManager.shared.enable = true
       //  CoreDataManager.shared.clearDataBase()
         return true

@@ -13,7 +13,21 @@ enum segment {
 }
 
 class LoadingViewController: UIViewController {
-    let textLabel = UILabel()
+    lazy var textLabel: UILabel = {
+        let text = UILabel()
+        text.translatesAutoresizingMaskIntoConstraints = false
+        text.text = "Music Player"
+        text.textAlignment = .center
+        text.textColor = .white
+        text.font = UIFont(name: "MarkerFelt-Wide", size: 60)
+        text.alpha = 0
+        text.layer.shadowColor = UIColor.black.cgColor
+        text.layer.shadowRadius = 5
+        text.layer.shadowOpacity = 1
+        text.layer.shadowOffset = CGSize(width: 10, height: 0)
+        return text
+    }()
+    
     lazy var shadowView: UIView = {
         let viewLabel = UIView()
         viewLabel.frame = view.bounds
@@ -26,7 +40,6 @@ class LoadingViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         rightShadow()
-        setupTextLabelLayout()
     }
     
     func setupUI() {
@@ -34,16 +47,7 @@ class LoadingViewController: UIViewController {
         view.bringSubviewToFront(shadowView)
         view.backgroundColor = UIColor(named: "ColorLight")
         view.addSubview(textLabel)
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.text = "Music Player"
-        textLabel.textAlignment = .center
-        textLabel.textColor = .white
-        textLabel.font = UIFont(name: "MarkerFelt-Wide", size: 60)
-        textLabel.alpha = 0
-        textLabel.layer.shadowColor = UIColor.black.cgColor
-        textLabel.layer.shadowRadius = 5
-        textLabel.layer.shadowOpacity = 1
-        textLabel.layer.shadowOffset = CGSize(width: 10, height: 0)
+        setupTextLabelLayout()
     }
     
     private func setupTextLabelLayout() {

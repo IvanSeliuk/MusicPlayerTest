@@ -16,12 +16,12 @@ extension AllLikeSongViewController {
     
     func setupNavigationBar() {
         navigationItem.title = "My liked music"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "MarkerFelt-Wide", size: 30)!]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "MarkerFelt-Wide", size: 25)!]
         navigationController?.navigationBar.tintColor = .white
         navigationItem.hidesBackButton = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "arrowshape.backward.fill",
-                           withConfiguration: UIImage.SymbolConfiguration(pointSize: 30)),
+                           withConfiguration: UIImage.SymbolConfiguration(pointSize: 20)),
             style: .plain,
             target: self,
             action: #selector(backMyMusic))
