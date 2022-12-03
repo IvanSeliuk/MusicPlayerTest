@@ -106,14 +106,24 @@ extension AllLikeSongViewController: UITableViewDataSource {
         }
     }
     
+    private func animationPushViewController(to vc: UIViewController) {
+        let transition = CATransition()
+        transition.duration = 0.75
+        transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        transition.type = .push
+        transition.subtype = .fromTop
+        navigationController?.view.layer.add(transition, forKey: nil)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.section == 0 else { return }
         if isFiltering {
             let vc = MusicPlayerViewController(songs: filteredSong, index: indexPath.row)
-            navigationController?.pushViewController(vc, animated: true)
+            animationPushViewController(to: vc)
         } else {
             let vc = MusicPlayerViewController(songs: LikeSongsTableViewCell.shared.likedSongs, index: indexPath.row)
-            navigationController?.pushViewController(vc, animated: true)
+            animationPushViewController(to: vc)
         }
     }
 }

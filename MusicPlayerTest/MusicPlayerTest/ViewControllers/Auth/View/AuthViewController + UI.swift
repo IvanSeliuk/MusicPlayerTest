@@ -65,6 +65,12 @@ extension AuthViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    private func showErrorPasswordOrMail() {
+        let alert = UIAlertController(title: "Error", message: "This email is not registered or incorrect password", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true, completion: nil)
+    }
+    
     private func setTextField(textField: UITextField, label: UILabel, validType: String.ValidTypes, validMessage: String, wrongMessage: String, string: String, range: NSRange) {
         
         let text = (textField.text ?? "") + string
@@ -114,6 +120,8 @@ extension AuthViewController: UITextFieldDelegate {
                     Auth.auth().signIn(withEmail: email, password: password) { result, error in
                         if error == nil {
                             self.dismiss(animated: true)
+                        } else {
+                            self.showErrorPasswordOrMail()
                         }
                     }
                 } else {

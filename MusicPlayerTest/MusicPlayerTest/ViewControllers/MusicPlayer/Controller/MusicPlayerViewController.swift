@@ -33,6 +33,7 @@ final class MusicPlayerViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         closureAlertPresent()
+//        print(CFGetRetainCount(mediaPlayer))
     }
     
     private func setupView() {
